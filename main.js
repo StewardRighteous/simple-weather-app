@@ -65,6 +65,8 @@ searchButton.addEventListener("click", (e) => {
   if (locationInput.value.length == 0) {
     alert("Enter Location");
   } else {
+    weatherDetailsContainer.classList.remove("hide");
+    weatherImage.src = "./loading.gif"
     showWeatherInContainer(locationInput.value);
   }
 });
