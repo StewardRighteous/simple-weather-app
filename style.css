@@ -35,6 +35,27 @@
     isolation: isolate;
   }
 
-.hide{
-    display: none;
+body{
+    background-color: cornflowerblue;
+}
+
+form{
+    display: grid;
+    grid-template-columns: 8rem 12rem 8rem;
+    padding: 16px;
+    justify-content: center;
+    column-gap: 2px;
+    row-gap: 5rem;
+}
+
+form label{
+    font-size: large;
+    align-self: center;
+}
+
+form .weather-details{
+    grid-column: 1/-1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
