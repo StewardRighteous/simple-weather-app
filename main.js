@@ -8,10 +8,25 @@ const weatherTemp = document.querySelector("h2");
 const weatherDescription = document.querySelector("h3");
 const isCelsiusCheckbox = document.querySelector("input#celsius-fahrenheit");
 
+let weatherInFahrenheit;
+
 function convertToCelsius(fahrenheit) {
   let celsius;
   celsius = ((fahrenheit - 32) * 5) / 9;
   return celsius;
+}
+
+// Shows the weather in Celsius or Fahrenheit according to checkbok
+function showWeatherInCelsiusOrFahrenheit(){
+  if (isCelsiusCheckbox.checked) {
+    weatherTemp.textContent = `${Math.round(
+      convertToCelsius(weatherInFahrenheit)
+    )} ℃`;
+  } else {
+    weatherTemp.textContent = `${Math.round(
+      weatherInFahrenheit
+    )} ℉`;
+  }
 }
 
 // Shows weather details in UI
@@ -24,15 +39,9 @@ async function showWeatherInContainer(currentLocation) {
   let icon = `./icons/${weatherData.currentConditions.icon}.svg`;
   weatherImage.src = icon;
 
-  if (isCelsiusCheckbox.checked) {
-    weatherTemp.textContent = `${Math.round(
-      convertToCelsius(weatherData.currentConditions.temp)
-    )} ℃`;
-  } else {
-    weatherTemp.textContent = `${Math.round(
-      weatherData.currentConditions.temp
-    )} ℉`;
-  }
+  weatherInFahrenheit = weatherData.currentConditions.temp;
+  showWeatherInCelsiusOrFahrenheit();
+
 }
 
 async function getWeatherData(location) {
@@ -60,4 +69,4 @@ searchButton.addEventListener("click", (e) => {
   }
 });
 
-isCelsiusCheckbox.addEventListener("change", );
+isCelsiusCheckbox.addEventListener("change",showWeatherInCelsiusOrFahrenheit );
