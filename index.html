@@ -9,10 +9,20 @@
   </head>
   <body>
     <form action="">
-        <label for="location">Search Location :</label>
-        <input type="text" name="location" id="location">
-        <button>Search</button>
-        <h1></h1>
+      <label for="location">Search Location :</label>
+      <input type="text" name="location" id="location" />
+      <button>Search</button>
+      <div class="weather-details">
+        <img src="./loading.gif" alt="weather" />
+        <h1>Location</h1>
+        <h2>5C</h2>
+        <input
+          type="checkbox"
+          name="celsius-fahrenheit"
+          id="celsius-fahrenheit"
+        />Show in Celsius
+        <h2>About weather</h2>
+      </div>
     </form>
   </body>
 </html>
